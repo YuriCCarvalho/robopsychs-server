@@ -3,17 +3,18 @@ const app = express();
 const http = require('http').createServer(app);
 const { Server } = require("socket.io");
 
-// Permite que o nosso site no GitHub Pages se ligue a este servidor
+// --- CORREÇÃO IMPORTANTE AQUI ---
+// Esta configuração permite que o seu site no GitHub Pages se ligue
 const io = new Server(http, {
   cors: {
-    origin: "https://YuriCCarvalho.github.io", // IMPORTANTE: O seu URL do GitHub Pages
+    origin: "https://yuriccarvalho.github.io", // O seu URL do GitHub Pages
     methods: ["GET", "POST"]
   }
 });
 
 app.use(express.json());
 
-// Uma rota simples para verificar se o servidor está online
+// Rota para verificar se o servidor está online
 app.get('/', (req, res) => {
   res.send('Servidor Robopsychs está a funcionar!');
 });
