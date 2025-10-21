@@ -1,13 +1,26 @@
 const express = require('express');
+const cors = require('cors'); // <-- 1. IMPORTE O PACOTE CORS
 const app = express();
 const http = require('http').createServer(app);
 const { Server } = require("socket.io");
 
 // --- CORREÇÃO IMPORTANTE AQUI ---
-// Esta configuração permite que o seu site no GitHub Pages se ligue
+// Define a origem permitida para o seu site no GitHub Pages
+const allowedOrigin = "https://YuriCCarvalho.github.io";
+
+// Opções do CORS para permitir apenas a sua interface
+const corsOptions = {
+  origin: allowedOrigin
+};
+
+// --- 2. APLIQUE O MIDDLEWARE DO CORS AO EXPRESS ---
+// Isso vai permitir as requisições POST da sua interface para a rota /command
+app.use(cors(corsOptions));
+
+// Esta configuração (que você já tinha) permite que o seu site no GitHub Pages se ligue via Socket.IO
 const io = new Server(http, {
   cors: {
-    origin: "https://YuriCCarvalho.github.io", // O seu URL do GitHub Pages
+    origin: allowedOrigin,
     methods: ["GET", "POST"]
   }
 });
@@ -36,5 +49,6 @@ const PORT = process.env.PORT || 10000;
 http.listen(PORT, () => {
   console.log(`Servidor a ouvir na porta ${PORT}`);
 });
+
 
 
