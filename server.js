@@ -7,7 +7,7 @@ const { Server } = require("socket.io");
 // Esta configuração permite que o seu site no GitHub Pages se ligue
 const io = new Server(http, {
   cors: {
-    origin: "https://yuriccarvalho.github.io", // O seu URL do GitHub Pages
+    origin: "https://YuriCCarvalho.github.io", // O seu URL do GitHub Pages
     methods: ["GET", "POST"]
   }
 });
@@ -36,3 +36,4 @@ const PORT = process.env.PORT || 3000;
 http.listen(PORT, () => {
   console.log(`Servidor a ouvir na porta ${PORT}`);
 });
+
