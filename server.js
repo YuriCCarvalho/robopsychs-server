@@ -32,8 +32,9 @@ app.post('/command', (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 http.listen(PORT, () => {
   console.log(`Servidor a ouvir na porta ${PORT}`);
 });
+
 
