@@ -6,7 +6,7 @@ const { Server } = require("socket.io");
 
 // --- CORREÇÃO IMPORTANTE AQUI ---
 // Define a origem permitida para o seu site no GitHub Pages
-const allowedOrigin = "https://YuriCCarvalho.github.io";
+const allowedOrigin = "https://yuriccarvalho.github.io";
 
 // Opções do CORS para permitir apenas a sua interface
 const corsOptions = {
@@ -49,6 +49,7 @@ const PORT = process.env.PORT || 10000;
 http.listen(PORT, () => {
   console.log(`Servidor a ouvir na porta ${PORT}`);
 });
+
 
 
 
